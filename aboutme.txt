@@ -1,0 +1,5 @@
+Hello!
+
+My name is Kira and I'm a first year Interactive Media student. My experience in web development is only based on the web design and programming courses that we had in school. For my future career I am so far most interested in animation, 3D modeling and web development. My brother is sort of working in web development and he told me that I should use react, so I'm pretty excited to try it out in this course. :D
+Other interests that I have besides school are mainly sports (badminton, boxing, running etc.), sewing and playing boardgames with friends.
+I feel like this course will be pretty challenging, but I'm also looking forward to learning lots of new stuff!
