@@ -1,6 +1,7 @@
 import React from 'react';
-import './Chatbox.css';
+/* import './Chatbox.css'; */
 import firebase from '../firebase';
+import { Box, List, ListItem, Paper, Typography } from '@mui/material';
 
 class Chatbox extends React.Component {
     constructor(props) {
@@ -30,20 +31,24 @@ class Chatbox extends React.Component {
     }
     render() {
         return(
+            <Paper elevation={4} sx={{ mx: "20%", p: 1 }}>
             <div className="chatbox">
-                <ul className="chat-list">
+                <List>
                     {this.state.chats.map(chat => {
                         const postDate = new Date(chat.date);
                         return(
-                            <li key={chat.id}>
-                                <em>{postDate.getDate() + '/' + (postDate.getMonth()+1)}</em>
-                                <strong>{chat.user}:</strong>
-                                {chat.message}
-                            </li>
+                            <ListItem key={chat.id}>
+                                <Typography sx={{ display: 'flex', width: 1, justifyContent: 'flex-start' }}>
+                                    <Box sx={{ width: 50 }}><em>{postDate.getDate() + '/' + (postDate.getMonth()+1)}</em></Box>
+                                    <Box sx={{ mr: 1 }}><strong>{chat.user}:</strong></Box>
+                                    <Box>{chat.message}</Box>
+                                </Typography>
+                            </ListItem>
                         )
                     })}
-                </ul>
+                </List>
             </div>
+            </Paper>
         );
     }
 }

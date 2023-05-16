@@ -1,6 +1,9 @@
 import React from 'react';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
+import theme from '../index.js';
+import { Button, ThemeProvider, Typography } from '@mui/material';
+import CssBaseline from "@mui/material/CssBaseline";
 
 class Login extends React.Component {
     constructor(props) {
@@ -29,14 +32,19 @@ class Login extends React.Component {
     render(){
         const {email, password, error} = this.state;
         return(
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
             <div className="auth-container">
-                <h1>Login</h1>
-                <p>Login to access your account</p>
+                <Typography variant="h1" sx={{ mt: 10, mb: 5, color: "primary.main" }}>
+                    Log in to your account
+                </Typography>
+                <Typography sx={{ lineHeight: '2' }}>
+                    Login to access your account
                 {error && <p className="error-message">{error.message}</p>}
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor="email">Email address</label>
-                    <input type="text" name="email" id="email" value={email} onChange={this.handleChange}></input>
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="email" style={{ marginRight: 10 }}>Email address</label>
+                        <input type="text" name="email" id="email" value={email} onChange={this.handleChange}></input><br />
+                    <label htmlFor="password" style={{ marginRight: 10 }}>Password</label>
                     <input
                         type="password"
                         name="password"
@@ -44,11 +52,13 @@ class Login extends React.Component {
                         value={password}
                         onChange={this.handleChange}
                         >
-                    </input>
-                    <button className="submit">Login</button>
+                    </input><br />
+                        <Button type="submit" variant="outlined" sx={{ my: 2 }}>Login</Button>
                     <p>Don't have an account? <Link className="login-btn" to="/register">Register here</Link></p>
                 </form>
+                </Typography>
             </div>
+            </ThemeProvider>
         )
     }
 }

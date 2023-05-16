@@ -1,8 +1,12 @@
 import React from 'react';
-import './App.css';
-import Chatbox from './components/Chatbox'
+/* import './App.css'; */
+import Chatbox from './components/Chatbox';
 import {Link} from 'react-router-dom';
 import firebase from './firebase';
+import { Box, Paper, Typography } from '@mui/material';
+import theme from './index.js';
+import { ThemeProvider } from '@mui/material';
+import CssBaseline from "@mui/material/CssBaseline";
 
 class App extends React.Component {
   constructor(props) {
@@ -33,31 +37,38 @@ class App extends React.Component {
 
   render() {
     return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
       <div className="App">
-        <h1>Chat App</h1>
+        <Typography variant="h1" sx={{ mt: 10, mb: 5, textAlign: "center", color: "primary.main"}}>
+            Chat App
+        </Typography>
         {this.props.user && 
           <div className="allow-chat">
             <Chatbox />
-            <form className="message-form" onSubmit={this.onSubmit}>
-            <input
-              type="text"
-              name="message"
-              id="message"
-              value={this.state.message}
-              placeholder="Enter a message..."
-              onChange={this.onChange} />
-            <button>Send</button>
-            </form>
+            <Box sx={{ display: "flex", justifyContent: "center", my: 2}}>
+              <form className="message-form" onSubmit={this.onSubmit}>
+              <input
+                type="text"
+                name="message"
+                id="message"
+                value={this.state.message}
+                placeholder="Enter a message..."
+                onChange={this.onChange} />
+              <button>Send</button>
+              </form>
+            </Box>
           </div>
         }
         {!this.props.user &&
           <div className="disallow-chat">
-            <p>
+            <Typography sx={{ textAlign: "center" }}>
               <Link to="/login">Login</Link> or <Link to="/register">Register</Link> to start chatting!
-            </p>
+            </Typography>
           </div>
         }
       </div>
+      </ThemeProvider>
     );
   }
 }
