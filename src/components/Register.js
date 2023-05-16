@@ -1,7 +1,6 @@
 import React from 'react';
 import firebase from '../firebase.js';
 import { Link } from 'react-router-dom';
-import Login from './Login';
 import theme from '../index.js';
 import { Button, ThemeProvider, Typography } from '@mui/material';
 import CssBaseline from "@mui/material/CssBaseline";

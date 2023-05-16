@@ -3,7 +3,7 @@ import React from 'react';
 import Chatbox from './components/Chatbox';
 import {Link} from 'react-router-dom';
 import firebase from './firebase';
-import { Box, Paper, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import theme from './index.js';
 import { ThemeProvider } from '@mui/material';
 import CssBaseline from "@mui/material/CssBaseline";

@@ -5,9 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import Login from './components/Login';
 import Register from './components/Register';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import firebase, {auth, provider} from './firebase.js';
+import firebase, {auth} from './firebase.js';
 import Button from '@mui/material/Button';
-import { Box, Container, createTheme, GlobalStyles, ThemeProvider } from '@mui/material';
+import { Box, Container, createTheme, ThemeProvider } from '@mui/material';
 
 
 class AppRouter extends React.Component {
