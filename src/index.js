@@ -35,15 +35,15 @@ class AppRouter extends React.Component {
             {!this.state.user &&
               <div>
                 <Button variant="outlined" sx={{ m: 2 }}>
-                    <Link to="/login" style={{ textDecoration: 'none' }}>Login</Link>
+                    <Link to="/login" style={{ textDecoration: 'none', color: "primary.main" }}>Login</Link>
                 </Button>
                 <Button variant="outlined">
-                    <Link to="/register" style={{ textDecoration: 'none' }}>Register</Link>
+                    <Link to="/register" style={{ textDecoration: 'none', color: "primary.main" }}>Register</Link>
                 </Button>
               </div>
             }
             {this.state.user &&
-                <Button href="#!" onClick={this.logOutUser} variant="outlined" sx={{ m: 2 }}>Log out</Button>
+                <Button href="#!" onClick={this.logOutUser} variant="outlined" sx={{ m: 2, color: "primary.main" }}>Log out</Button>
             }
           </Box>
           <Switch>
